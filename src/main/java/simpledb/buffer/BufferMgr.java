@@ -18,13 +18,6 @@ public class BufferMgr {
     * of buffer slots.
     * This constructor depends on a {@link FileMgr} and
     * {@link simpledb.log.LogMgr LogMgr} object.
-    * @param numbuffs the number of buffer slots to allocate
-    */
-   public BufferMgr(FileMgr fm, LogMgr lm, int numbuffs) {
-      bufferpool = new Buffer[numbuffs];
-      numAvailable = numbuffs;
-      for (int i=0; i<numbuffs; i++)
-         bufferpool[i] = new Buffer(fm, lm);
    }
    
    /**

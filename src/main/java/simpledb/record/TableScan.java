@@ -88,9 +88,9 @@ public class TableScan implements UpdateScan {
    public void insert() {
       currentslot = rp.insertAfter(currentslot);
       while (currentslot < 0) {
-         if (atLastBlock()) 
+         if (atLastBlock())
             moveToNewBlock();
-         else 
+         else
             moveToBlock(rp.block().number()+1);
          currentslot = rp.insertAfter(currentslot);
       }

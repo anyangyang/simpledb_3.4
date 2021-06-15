@@ -13,7 +13,7 @@ import simpledb.file.*;
 public class LogMgr {
    private FileMgr fm;
    private String logfile;
-   private Page logpage;
+   private Page logpage;    // logpage 永远缓存 log file 的最后一个 blk 的 content
    private BlockId currentblk;
    private int latestLSN = 0;
    private int lastSavedLSN = 0;
@@ -22,7 +22,7 @@ public class LogMgr {
     * Creates the manager for the specified log file.
     * If the log file does not yet exist, it is created
     * with an empty first block.
-    * @param FileMgr the file manager
+    * @param fm the file manager
     * @param logfile the name of the log file
     */
    public LogMgr(FileMgr fm, String logfile) {
